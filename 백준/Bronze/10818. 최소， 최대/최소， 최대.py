@@ -1,3 +1,5 @@
-n = int(input())
-arr = list(map(int, input().split()))
-print(str(min(arr)), str(max(arr)) , sep=' ')
+import sys
+input= sys.stdin.readline
+how= int(input().rstrip())
+list1 = list(map(int, input().rstrip().split()))
+print(min(list1), max(list1))

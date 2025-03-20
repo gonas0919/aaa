@@ -1,9 +1,10 @@
-N , M = map(int, input().split())
-a = [0]*N
-for p in range(M):
-    i , j ,k = map(int, input().split())
-    for x in range(i,j+1):
-        a[x-1] = k
-
-for t in range(N):
-    print(a[t], end=' ')
+import sys
+input= sys.stdin.readline
+b, how = map(int, input().rstrip().split())
+list1 = [0 for _ in range(b)]
+for i in range(how):
+    bn, bn2, num = map(int, input().rstrip().split()) # 1 3 5
+    for i in range(bn,bn2+1): # 1 4
+        list1[i-1] = num
+for i in list1:
+    print(i, end=' ')

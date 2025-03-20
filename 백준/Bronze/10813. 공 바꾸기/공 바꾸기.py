@@ -1,9 +1,9 @@
-N , M = map(int, input().split())
-a = []
-for x in range(1,N+1):
-    a.append(x)
-for p in range(M):
-    i, j = map(int, input().split())
-    a[i-1] , a[j-1] = a[j-1] , a[i-1]
-for h in a:
-    print(h,end = ' ')
+import sys
+input= sys.stdin.readline
+b, how = map(int, input().rstrip().split())
+list1 = [i for i in range(1,b+1)]
+for _ in range(how):
+    bn, bn2= map(int, input().rstrip().split())
+    list1[bn-1], list1[bn2-1] = list1[bn2-1], list1[bn-1]
+for i in list1:
+    print(i, end=' ')

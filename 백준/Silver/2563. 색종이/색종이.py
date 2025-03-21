@@ -1,16 +1,13 @@
-background = [[0] * 100 for i in range(100)]
-how = int(input())
-h = 0
-total = 0
-for i in range(how):
-    x , y = map(int,input().split())
-    for q in range(y,y+10):
-        for p in range(x, x+10): # 3 7
-            background[99-q][p] += 1 
-for i in background:
-    for j in i:
-        if j !=0:
-            total +=1
-        # if j >1:
-        #     h +=1
-print(total)
+import sys
+input= sys.stdin.readline
+a = 0
+bg = [[0]*100 for _ in range(100)]
+how = int(input().rstrip())
+for _ in range(how):
+    x, y = map(int, input().rstrip().split())
+    for i in range(10):
+        for j in range(10):
+            bg[99-y-i][x+j] = 1
+for i in range(100):
+    a += bg[i].count(1)
+print(a)

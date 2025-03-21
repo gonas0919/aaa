@@ -1,13 +1,10 @@
-N , M = map(int, input().split())
-A= []
-B = []
-for i in range(N):
-    num = list(map(int,input().split()))
-    A.append(num)
-for i in range(N):
-    num = list(map(int,input().split()))
-    B.append(num)
-for i in range(N):
-    for j in range(M):
-        print(A[i][j]+B[i][j], end=' ')
+import sys
+input= sys.stdin.readline
+row, column = map(int,input().rstrip().split())
+list1 = [list(map(int, input().rstrip().split())) for _ in range(row)]
+list2 = [list(map(int, input().rstrip().split())) for _ in range(row)]
+list3 = []
+for i in range(row):
+    for j in range(column):
+        print(list1[i][j]+list2[i][j], end= ' ')
     print()

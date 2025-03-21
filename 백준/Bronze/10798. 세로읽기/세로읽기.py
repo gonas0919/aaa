@@ -1,10 +1,11 @@
-A = []
-for i in range(5):
-    a = list(map(str, input()))
-    A.append(a)
-for i in range(15):
+import sys
+input= sys.stdin.readline
+list1 = [list(input().rstrip()) for _ in range(5)]
+maxLen = max([len(list1[i])for i in range(5)])
+
+for i in range(maxLen):
     for j in range(5):
         try:
-            print(A[j][i], end='')
+            print(list1[j][i], end='')
         except IndexError:
-            print('' ,end='')
+            print('', end='')

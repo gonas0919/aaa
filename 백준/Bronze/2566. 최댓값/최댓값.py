@@ -1,7 +1,6 @@
-a = []
-for i in range(9):
-    a1 = list(map(int, input().split()))
-    a.append(a1)
-a2 = list(map(max, a))
-print(max(a2))
-print(a2.index(max(a2))+1 ,a[a2.index(max(a2))].index(max(a2))+1)
+import sys
+input= sys.stdin.readline
+list1 = [list(map(int, input().rstrip().split())) for _ in range(9)]
+maxList = [max(list1[i]) for i in range(9)]
+print(max(maxList))
+print(maxList.index(max(maxList))+1,list1[maxList.index(max(maxList))].index(max(maxList))+1)

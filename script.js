@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           opacity: heroCardsContainerOpacity,
         });
 
-        ["#hero-card-1", "#hero-card-2", "#hero-card-3", "#hero-card-4", "#hero-card-5", "#hero-card-6"].forEach(
+        ["#hero-card-1", "#hero-card-2", "#hero-card-3", "#hero-card-4", "#hero-card-5","#hero-card-6"].forEach(
           (cardId, index) => {
             const delay = index * 0.9;
             const cardProgress = gsap.utils.clamp(
@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
               smoothStep(cardProgress)
             );
 
-            const spreadX = ["180%", "108%", "36%", "-36%", "-108%", "-180%"]; // 6개 카드용 X 위치
-            const spreadRotate = [-18, -10.8, -3.6, 3.6, 10.8, 18];          // 6개 카드용 회전값
+            const spreadX = ["50%", "20%", "0%", "0%","-20%", "-50%"]; // 👈 추가: 카드 수에 따라 좌우 위치 지정
+            const spreadRotate = [-30, -20, -5, 5, 20, 30];          // 👈 추가: 카드 수에 따라 회전 지정
 
-            let x = gsap.utils.interpolate("0%", spreadX[index], smoothStep(cardProgress));
+            let x = gsap.utils.interpolate("0%", spreadX[index], smoothStep(cardProgress)); // 👈 수정함
             let rotation = gsap.utils.interpolate(0, spreadRotate[index], smoothStep(cardProgress));
             
 
@@ -125,7 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         ["#card-1", "#card-2", "#card-3", "#card-4", "#card-5", "#card-6"].forEach((cardId, index) => {
-          const delay = index * 0.5;
+          // 대칭적인 delay 패턴: 중앙에서 바깥쪽으로 나타나게 하기
+          const delayPattern = [2.5, 1.5, 0.5, 0, 1, 2]; // 카드 3,4가 먼저, 그 다음 2,5, 마지막에 1,6
+          const delay = delayPattern[index];
+          
           const cardProgress = gsap.utils.clamp(
             0,
             1,
@@ -182,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
             opacity = 1;
           }
 
-            const spreadX = ["250%", "150%", "50%", "-50%", "-150%", "-250%"];  // 6개 카드용 펼침 위치
-            const spreadRotate = [-10, -6, -2, 2, 6, 10];                      // 6개 카드용 회전값
+            const spreadX = ["200%", "100%", "50%", "-50%","-100%", "-200%"];  // 카드들이 펼쳐질 위치
+            const spreadRotate = [-10, -6, 2, -2, 6, 10];      
 
 
           let x, rotate, rotationY;
